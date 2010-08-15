@@ -1,0 +1,4 @@
+$('#content').prepend("<%= escape_javascript(render("shared/error_messages", :target => @item)) %>");
+$('#items-table').prepend("<%= escape_javascript(render("table", :items => @items)) %>");
+$('#item-form-container').toggleClass('loading');
+stripe();

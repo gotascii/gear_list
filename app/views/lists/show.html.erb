@@ -1,0 +1,27 @@
+<h2><%= @list.name.upcase %></h2>
+<%= form_for(@pick) do |f| %>
+  <%= f.hidden_field :list_id %>
+  <p>
+    <%= f.select :item_id, options_from_collection_for_select(@items, 'id', 'function_name_and_name') %>
+    <%= f.check_box :packed %>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
+
+<table class="list-weights">
+  <tr>
+    <td>packed<br/><%= @list.packed_weight %> oz<br/><%= @list.packed_weight.to_lbs %> lbs</td>
+    <td>worn<br/><%= @list.worn_weight %> oz<br/><%= @list.worn_weight.to_lbs %> lbs</td>
+    <td>total<br/><%= @list.weight %> oz<br/><%= @list.weight.to_lbs %> lbs</td>
+  </tr>
+</table>
+
+<table>
+  <% @picks.each do |pick| %>
+    <tr>
+      <%= raw(item_columns(pick.item)) %>
+      <td><%= pick.packed? ? 'packed' : 'worn' %></td>
+      <td><%= link_to 'Delete', pick_url(pick), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>

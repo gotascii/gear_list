@@ -1,0 +1,9 @@
+<div id="item-form-container">
+  <%= form_for item, :remote => true do |f| %>
+    <%= hidden_field_tag :function_id, params[:function_id] %>
+    <%= f.text_field :name %>
+    <%= f.text_field :weight, :class => 'weight' %>
+    <%= f.select :function_id, options_from_collection_for_select(functions, 'id', 'name', item.function_id) %>
+    <%= f.submit 'Save', :style => 'display:inline' %>
+  <% end %>
+</div>

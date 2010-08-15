@@ -1,0 +1,9 @@
+<% if target.present? && target.errors.any? %>  
+  <div id="item-error">
+    <ul>  
+    <% target.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>
+<% end %>

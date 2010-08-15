@@ -1,0 +1,5 @@
+<ul class="list">
+  <% @functions.each do |function| %>
+    <li><%= link_to function.name.upcase, items_url(:function_id => function.id) %></li>
+  <% end %>
+</ul>

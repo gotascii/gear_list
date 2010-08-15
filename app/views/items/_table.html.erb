@@ -1,0 +1,7 @@
+<% items.each do |item| %>
+  <tr>
+    <%= raw(item_columns(item)) %>
+    <td><%= link_to 'Edit', edit_item_url(item, :function_id => params[:function_id]) %></td>
+    <td><%= link_to 'Delete', item_url(item, :function_id => params[:function_id]), :method => :delete %></td>
+  </tr>
+<% end %>

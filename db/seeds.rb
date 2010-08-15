@@ -1,7 +1,47 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+["Bag",
+"Balaclava",
+"Bandana",
+"Base Layer Bot",
+"Base Layer Top",
+"Bivy",
+"Camera",
+"Compass",
+"Fa/R/S Kit",
+"Food Biner",
+"Food Cord",
+"Food Sack",
+"Gloves",
+"Gloves",
+"Gloves",
+"Grnd Pad",
+"Grnd Sheet",
+"H2O Bottle",
+"H2O Bottle",
+"H2O Bottle",
+"Hat Warm",
+"Headlamp",
+"Insulation",
+"Knife",
+"Mug",
+"Pack",
+"Pack Liner",
+"Pants",
+"Poles",
+"Rain Shell",
+"Rain Shell",
+"Shoes",
+"Sit Pad",
+"Socks",
+"Socks",
+"Socks",
+"Spork",
+"Stakes",
+"Stove",
+"Stuff Sack",
+"Tarp",
+"Watch",
+"Whistle",
+"Wind Shell",
+].uniq.each do |name|
+  Function.create!(:name => name)
+end
