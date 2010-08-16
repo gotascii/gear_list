@@ -1,6 +1,10 @@
-<%= render "form", :list => @list %>
+<%= render "form", :list => @list, :lists => @lists %>
 <ul class="list">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name.upcase, list %></li>
+    <li>
+      <%= link_to list.name.upcase, list %>
+      <%= link_to 'DELETE', list_url(list), :method => :delete, :style => "float:right; margin-right: 10px" %>
+      <%= link_to 'EDIT', edit_list_url(list), :style => "float:right; margin-right: 10px" %>
+    </li>
   <% end %>
 </ul>
