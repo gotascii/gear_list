@@ -3,9 +3,9 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name, :weight
 
-  scope :order_by_function_name, {
-    :include => :function,
-    :order => 'functions.name, items.name'
+  scope :order_by_function_name, -> {
+    includes(:function).
+    order('functions.name, items.name')
   }
 
   def function_name_and_name

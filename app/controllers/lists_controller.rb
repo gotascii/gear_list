@@ -13,7 +13,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create!(params[:list])
+    @list = List.create!(list_params)
     redirect_to lists_url
   end
 
@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list.update_attributes(params[:list])
+    @list.update_attributes(list_params)
     redirect_to lists_url
   end
 
@@ -37,5 +37,9 @@ class ListsController < ApplicationController
 
   def load_lists
     @lists = List.order_by_name
+  end
+
+  def list_params
+    params[:list].permit!
   end
 end

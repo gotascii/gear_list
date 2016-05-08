@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(params[:item])
+    @item = Item.create(item_params)
     respond_to do |format|
       format.html { redirect_to items_url }
       format.js { load_items }
@@ -19,13 +19,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update_attributes(params[:item])
+    @item.update_attributes(item_params)
     respond_to do |format|
       format.html { redirect_to items_url }
       format.js do
-        render :update do |page|
-          page.redirect_to items_url(:function_id => params[:function_id])
-        end
+        render js: "window.location = '#{items_url(:function_id => params[:function_id])}';"
       end
     end
   end
@@ -43,5 +41,9 @@ class ItemsController < ApplicationController
       function = Function.find(params[:function_id])
       @items = function.items.order_by_function_name
     end
+  end
+
+  def item_params
+    params[:item].permit!
   end
 end

@@ -1,0 +1,100 @@
+body {
+	background: #2f2f2f;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: #999;
+  font-size: 0.8em;
+  padding: 0 10px 10px 10px;
+  margin: 0;
+}
+
+a {
+  color: #fff;
+}
+
+table {
+  border-spacing: 0;
+  background: #222;
+  clear: both;
+  width: 489px;
+}
+
+table.list-weights {
+  width: 489px;
+  margin-bottom: 10px;
+}
+
+td {
+  padding: 10px;
+}
+
+table.list-weights tr td {
+  text-align: center;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+form {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+form .weight {
+  width: 50px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.alt {
+  background: #262626;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+}
+
+ul.list {
+  width: 400px;
+  background: #222;
+}
+
+ul.nav {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#item-error ul {
+  width: 489px;
+}
+
+li {
+  padding: 10px;
+}
+
+ul.nav li {
+  background: #222;
+  float:left;
+  margin-right: 10px;
+}
+
+#item-error ul li {
+  background: #ff0000;
+  color: #000;
+}
+
+.loading {
+ background: url(/images/spinner.gif) no-repeat 2px 4px; 
+ height: 32px;
+}
+
+.loading form {
+  display:none;
+}

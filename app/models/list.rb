@@ -1,15 +1,15 @@
 class List < ActiveRecord::Base
   attr_accessor :list_id
 
-  has_many :picks, :include => :item, :dependent => :destroy
-  has_many :packed_picks, :class_name => 'Pick', :conditions => {:packed => true}
-  has_many :worn_picks, :class_name => 'Pick', :conditions => {:packed => false}
+  has_many :picks, -> { includes(:item) }, :dependent => :destroy
+  has_many :packed_picks, -> { where(packed: true) }, :class_name => 'Pick'
+  has_many :worn_picks, -> { where(packed: false) }, :class_name => 'Pick'
 
   has_many :items, :through => :picks
   has_many :packed_items, :class_name => 'Item', :through => :packed_picks, :source => :item
   has_many :worn_items, :class_name => 'Item', :through => :worn_picks, :source => :item
 
-  scope :order_by_name, :order => :name
+  scope :order_by_name, -> { order(:name) }
 
   before_create :populate_picks, :if => :list_id?
 
