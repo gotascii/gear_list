@@ -24,4 +24,4 @@ USER gotascii
 RUN gem install bundler
 RUN bundle install --jobs 20 --retry 5
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'
